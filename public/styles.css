@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.categories{
+    display: flex;
+}
+.categories .category:not(:first-child){
+    margin-left: 1rem;
+}
+.category{
+    font-size: 0.6rem;
+    background-color: bisque;
+    padding: 0.3rem 0.5rem;
+}
+.bookmark{
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem 1.5rem 0 1.5rem;
+}
+.title{
+    font-size: 1.25rem;
+    padding: 0.5rem 0;
+}
+.title a{
+    color: black;
+    text-decoration: none;
+}

@@ -6,6 +6,7 @@ app.get('/', (req, res) => {
     res.sendFile('index.html', {root: __dirname});
 })
 
+app.use(express.static('public'));
 app.post('/', (req, res) => {
     var cli = process.argv.slice(2)
     var path = require('path')
