@@ -11,8 +11,29 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="file" name="bk_file" id="upload">
     <script>
-        
+        document.querySelector("input").addEventListener("change", (e) => {
+            console.log(document.querySelector("#upload").files);
+            let file = document.querySelector("#upload").files[0];
+            console.log(file);
+
+            let data_of_form = new FormData();
+            console.log(data_of_form)
+            data_of_form.append("file.html", file);
+            console.log(data_of_form.get("file.html"));
+
+            fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: data_of_form
+            }).then((response) => {
+                return response.json()
+            }).then((data) => {
+                console.log(data);
+            }).catch((error) => {
+                console.log(error);
+            })
+        })
         fetch('http://localhost:3000', {
             method: 'POST',
             headers: {

@@ -1,5 +1,9 @@
 const express = require('express');
+const path = require('path');
+const formidable = require('formidable');
 const app = express();
+const bodyParser = require('body-parser');
+const textParser = bodyParser.text();
 app.listen(3000, () => { console.log('listening on port 3000') });
 
 app.get('/', (req, res) => {
@@ -7,6 +11,8 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.static('public'));
+app.use(express.json())
+
 app.post('/', (req, res) => {
     var cli = process.argv.slice(2)
     var path = require('path')
@@ -17,11 +23,11 @@ app.post('/', (req, res) => {
     fs.readdirSync(Folder).forEach(file => {
         console.log(file);
     });
-    console.log(fs.readdirSync(Folder)[0]);
-    console.log(path.resolve(__dirname, 'file/bm.html'));
+    console.log(fs.readdirSync(Folder)[1]);
+    console.log(path.resolve(__dirname, 'file/bookmarks_msurti_5_17_21.html'));
     // var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, cli[0])))
 
-    var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, `file/${fs.readdirSync(Folder)[0]}`)))
+    var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, `file/${fs.readdirSync(Folder)[1]}`)))
 
 
     function getCategories($a) {
@@ -70,4 +76,21 @@ app.post('/', (req, res) => {
     // console.log(JSON.stringify(jsonbmArray, null, 4));
     // fs.writeFileSync(path.resolve(__dirname, cli[0]), JSON.stringify(jsonbmArray, null, 4))
     res.send(JSON.stringify(jsonbmArray, null, 4))
+})
+
+app.post('/upload', textParser, function(req, res) {
+    const form = new formidable.IncomingForm();
+    form.on('fileBegin', function(formname, file){
+        console.log(file.filepath, file.originalFilename);
+        console.log(__dirname);
+        file.filepath = __dirname + '/file/' + file.originalFilename;
+        console.log(file.filepath);
+    })
+    form.parse(req, (err, fields, files) => {
+        if(err){
+            return res.status(400).json({ error: err.message });
+        }
+        // console.log(files, files.file);
+    })
+    // console.log(req);
 })
