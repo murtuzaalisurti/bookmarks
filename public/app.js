@@ -1,23 +1,15 @@
-
 document.querySelector("input").addEventListener("change", (e) => {
     let iframe = document.querySelector("iframe");
     iframe.style = '';
     let style_link = document.createElement("link");
     style_link.rel = "stylesheet";
     style_link.href = "styles.css";
-    // iframe.contentWindow.document.head.append(style_link);
     iframe.contentDocument.head.appendChild(style_link);
-    console.log(iframe.contentDocument.head);
 
-
-    console.log(document.querySelector("#upload").files);
     let file = document.querySelector("#upload").files[0];
-    console.log(file);
 
     let data_of_form = new FormData();
-    console.log(data_of_form)
     data_of_form.append("file.html", file);
-    console.log(data_of_form.get("file.html"));
 
     fetch('http://localhost:3000/upload', {
         method: 'POST',
@@ -42,15 +34,11 @@ function display() {
     }).then((response) => {
         return response.json()
     }).then((data) => {
-        console.log(data);
-        console.log(data[0].categories[0].name);
         const bk_categories = [[data[0].categories[0].name, data[0].categories[0].level]];
-        // console.log(bk_categories)
         let container = document.querySelector("iframe").contentWindow.document.querySelector(".container");
-        console.log(container);
         data.forEach((bookmark) => {
-            let present = false;
-            for (let i = 0; i < bookmark.categories.length; i++) {
+            // let present = false;
+            /*for (let i = 0; i < bookmark.categories.length; i++) {
                 for (let j = 0; j < bk_categories.length; j++) {
                     if (bookmark.categories[i].name == bk_categories[j][0]) {
                         present = true;
@@ -64,10 +52,7 @@ function display() {
                 } else {
                     bk_categories.push([bookmark.categories[i].name, bookmark.categories[i].level]);
                 }
-                // if(bookmark.categories[i]){}
-            }
-            // console.log(bookmark.categories[bookmark.categories.length - 1])
-            // let container = document.createElement("div");
+            }*/
             let a_bk = document.createElement("div");
             a_bk.className = "bookmark";
             let title = document.createElement("div");
@@ -87,10 +72,11 @@ function display() {
             }
             a_bk.appendChild(categories);
             container.appendChild(a_bk);
+            document.querySelector("#pdf_download").style = '';
 
         })
         // document.body.appendChild(container);
-        console.log(bk_categories);
+        /*console.log(bk_categories);
         let max = 0;
         for (let k = 0; k < bk_categories.length; k++) {
             if (bk_categories[k][1] > max) {
@@ -135,9 +121,14 @@ function display() {
         console.log(second_level);
         console.log(third_level);
         console.log(fourth_level);
-        console.log(fifth_level);
+        console.log(fifth_level);*/
 
     }).catch((error) => {
         console.log(error);
     })
 }
+
+document.querySelector("#pdf_download").addEventListener("click", () => {
+    var element = document.querySelector("iframe").contentWindow.document.body.querySelector(".container");
+    document.querySelector("iframe").contentWindow.print();
+})
