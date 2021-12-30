@@ -72,7 +72,7 @@ function display() {
             }
             a_bk.appendChild(categories);
             container.appendChild(a_bk);
-            document.querySelector("#pdf_download").style = '';
+            document.querySelector(".download_contain").style = '';
 
         })
         // document.body.appendChild(container);

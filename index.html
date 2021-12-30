@@ -22,9 +22,14 @@
     <h1>Bookmarks to PDF</h1>
     <label for="upload">Add file</label>
     <input type="file" name="bk_file" id="upload" style="display: none">
-    <iframe srcdoc="<div class='container'></div>" style="display: none;">
-    </iframe>
-    <button id="pdf_download" style="display: none;">Download</button>
+    <div class="output">
+        <div class="download_contain" style="display: none">
+            <span>Your file has been generated!</span>
+            <button id="pdf_download">Download</button>
+        </div>
+        <iframe srcdoc="<div class='container'></div>" style="display: none;">
+        </iframe>
+    </div>
     <script src="app.js"></script>
 </body>
 
