@@ -11,7 +11,7 @@ document.querySelector("input").addEventListener("change", (e) => {
     let data_of_form = new FormData();
     data_of_form.append("file.html", file);
 
-    fetch('http://localhost:3000/upload', {
+    fetch(`${window.location.href}upload`, {
         method: 'POST',
         body: data_of_form
     }).then((response) => {
@@ -25,7 +25,7 @@ document.querySelector("input").addEventListener("change", (e) => {
     })
 })
 function display() {
-    fetch('http://localhost:3000', {
+    fetch(`${window.location.href}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain'
