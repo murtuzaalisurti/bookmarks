@@ -23,8 +23,8 @@ app.post('/', (req, res) => {
     fs.readdirSync(Folder).forEach(file => {
         console.log(file);
     });
-    console.log(fs.readdirSync(Folder)[1]);
-    console.log(path.resolve(__dirname, 'file/bookmarks_msurti_5_17_21.html'));
+    console.log("file: "+fs.readdirSync(Folder)[1]);
+    // console.log(path.resolve(__dirname, 'file/bookmarks_msurti_5_17_21.html'));
     // var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, cli[0])))
 
     var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, `file/${fs.readdirSync(Folder)[1]}`)))
@@ -75,6 +75,12 @@ app.post('/', (req, res) => {
     })
     // console.log(JSON.stringify(jsonbmArray, null, 4));
     // fs.writeFileSync(path.resolve(__dirname, cli[0]), JSON.stringify(jsonbmArray, null, 4))
+    fs.unlink(`file/${fs.readdirSync(Folder)[1]}`, (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log("file deleted");
+    })
     res.send(JSON.stringify(jsonbmArray, null, 4))
 })
 
@@ -90,7 +96,6 @@ app.post('/upload', textParser, function(req, res) {
         if(err){
             return res.status(400).json({ error: err.message });
         }
-        // console.log(files, files.file);
+        res.status(200).json({status: 'ok'})
     })
-    // console.log(req);
 })

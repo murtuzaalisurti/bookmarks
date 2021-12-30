@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    flex-direction: column;
+}
+iframe{
+    height: 25rem;
+}
 .categories{
     display: flex;
 }
