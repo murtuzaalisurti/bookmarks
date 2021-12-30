@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.1.5/html2canvas.min.js" integrity="sha512-oQzeC9gIS3sN3QCshVeDWiRCC2tJbR9lqj1rolUtQkGJJeA+7L54y/DVZf0+T3NDZuLOkbInugg7dVNwvcEGow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="styles.css" type="text/css">
     <title>Bookmark to PDF generator</title>
@@ -20,7 +21,7 @@
 
 <body>
     <h1>Bookmarks to PDF</h1>
-    <label for="upload">Add file</label>
+    <label for="upload">Add file&nbsp;&nbsp;<i class="fas fa-upload"></i></label>
     <input type="file" name="bk_file" id="upload" style="display: none">
     <div class="output">
         <div class="download_contain" style="display: none">
@@ -30,6 +31,10 @@
         <iframe srcdoc="<div class='container'></div>" style="display: none;">
         </iframe>
     </div>
+    <footer>
+        <div class="text1" aria-label="contributor">Huge thanks to <a href="https://github.com/devster31"><em><strong>devster31</strong></em></a>&nbsp;for <a href="https://gist.github.com/devster31/4e8c6548fd16ffb75c02e6f24e27f9b9"><strong><em>bookmark parser</em></strong></a>&nbsp;• Made with&nbsp;<i class="fas fa-heart"></i>&nbsp;by&nbsp;<a rel="noreferrer" aria-label="github profile" href="https://github.com/murtuzaalisurti">Murtuza</a></div>
+        <div class="text2" aria-label="powered by">Powered by Heroku</div>
+    </footer>
     <script src="app.js"></script>
 </body>
 
