@@ -1,10 +1,12 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 const path = require('path');
 const formidable = require('formidable');
 const app = express();
 const bodyParser = require('body-parser');
 const textParser = bodyParser.text();
-app.listen(3000, () => { console.log('listening on port 3000') });
+app.listen(process.env.PORT, () => { console.log('listening on port 3000') });
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', {root: __dirname});
