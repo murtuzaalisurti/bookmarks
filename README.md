@@ -1,6 +1,6 @@
 # Convert Bookmarks to PDF
 
-A web app which converts the bookmark HTML file into a PDF which you can download. It uses a [bookmark parser](https://gist.github.com/devster31/4e8c6548fd16ffb75c02e6f24e27f9b9) made by [devster31](https://github.com/devster31) to parse the bookmark file.
+A web app which converts the bookmark HTML file into a PDF which you can download. You can also add multiple bookmark files and combine them into a single PDF. This web app uses a [bookmark parser](https://gist.github.com/devster31/4e8c6548fd16ffb75c02e6f24e27f9b9) made by [devster31](https://github.com/devster31) to parse the bookmark file.
 
 ## Usage
 
