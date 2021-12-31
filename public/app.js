@@ -1,7 +1,9 @@
+let files = 0;
 document.querySelector("input").addEventListener("change", (e) => {
     let iframe = document.querySelector("iframe");
     iframe.style = '';
-    iframe.contentWindow.document.querySelector(".container").innerHTML = `<div class="loading"><i class="fas fa-spinner"></i></div>`;
+    let loading = iframe.contentWindow.document.querySelector(".loading");
+    loading.style = '';
     let style_link = document.createElement("link");
     style_link.rel = "stylesheet";
     style_link.href = "styles.css";
@@ -40,8 +42,9 @@ function display() {
     }).then((response) => {
         return response.json()
     }).then((data) => {
-        let container = document.querySelector("iframe").contentWindow.document.querySelector(".container");
-        container.innerHTML = '';
+        let bookmarks_container = document.querySelector("iframe").contentWindow.document.querySelector(".bookmarks");
+        let loading = document.querySelector("iframe").contentWindow.document.querySelector(".loading");
+        loading.style = 'display: none; z-index: -1;';
         data.forEach((bookmark) => {
             let a_bk = document.createElement("div");
             a_bk.className = "bookmark";
@@ -61,16 +64,25 @@ function display() {
                 categories.appendChild(category);
             }
             a_bk.appendChild(categories);
-            container.appendChild(a_bk);
-            document.querySelector(".download_contain").style = '';
-
+            bookmarks_container.appendChild(a_bk);
+            
         })
+        document.querySelector(".download_contain").style = '';
+        files++;
+        if(files > 0){
+            if(files == 1){
+                document.querySelector("#upload-label").innerHTML = 'Add another file<i class="fas fa-upload"></i>';
+                document.querySelector(".uploaded-files").innerHTML = `${files} file added`;
+            } else {
+                document.querySelector(".uploaded-files").innerHTML = `${files} files added`;
+            }
+        }
     }).catch((error) => {
         console.log(error);
+        document.querySelector("iframe").contentWindow.document.querySelector(".loading").style = 'display: none; z-index: -1;';
     })
 }
 
 document.querySelector("#pdf_download").addEventListener("click", () => {
-    var element = document.querySelector("iframe").contentWindow.document.body.querySelector(".container");
     document.querySelector("iframe").contentWindow.print();
 })

@@ -5,30 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Murtuzaali Surti">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.1.5/html2canvas.min.js" integrity="sha512-oQzeC9gIS3sN3QCshVeDWiRCC2tJbR9lqj1rolUtQkGJJeA+7L54y/DVZf0+T3NDZuLOkbInugg7dVNwvcEGow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="styles.css" type="text/css">
-    <title>Bookmark to PDF generator | by Murtuza</title>
+    <title>Bookmark to PDF converter | by Murtuza</title>
 </head>
 
 <body>
-    <h1>Bookmarks to PDF</h1>
-    <label for="upload">Add file&nbsp;&nbsp;<i class="fas fa-upload"></i></label>
+    <p id="heading">Bookmarks' PDF</p>
+    <label for="upload" id="upload-label">Add file<i class="fas fa-upload"></i></label>
     <input type="file" name="bk_file" id="upload" style="display: none">
+    <div class="uploaded-files"></div>
     <div class="output">
         <div class="download_contain" style="display: none">
             <span>Your file has been generated!</span>
             <button id="pdf_download">Download&nbsp;&nbsp;<i class="fas fa-download"></i></button>
         </div>
-        <iframe srcdoc="<div class='container'></div>" style="display: none;">
+        <iframe srcdoc="<div class='container'><div class='loading'><i class='fas fa-spinner'></i></div><div class='bookmarks'></div></div>" style="display: none;">
         </iframe>
     </div>
     <footer>

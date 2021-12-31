@@ -10,10 +10,12 @@ body{
     justify-content: center;
     align-items: center;
 }
-h1{
+#heading{
     margin: 1rem 2rem 0 2rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-size: 2.9rem;
+    // font-family: 'Poppins', sans-serif;
+    font-family: 'Caveat Brush', cursive;
 }
 iframe{
     height: 25rem;
@@ -24,6 +26,10 @@ iframe{
 }
 .container{
     margin-bottom: 2rem;
+    width: 100%;
+    position: relative;
+}
+.bookmarks{
     width: 100%;
 }
 .categories{
@@ -54,7 +60,7 @@ iframe{
 label{
     width: fit-content;
     background-color: #bfcaff;
-    margin: 2rem 2rem 3rem 2rem;
+    margin: 2rem 2rem 0rem 2rem;
     padding: 0.6rem 4rem;
     border: 0.1rem solid transparent;
     border-radius: 0.5rem;
@@ -66,6 +72,9 @@ label:hover{
     cursor: pointer;
     border: 0.1rem solid #5f7cff;
     background-color: #a4b4ff;
+}
+label > i{
+    margin-left: 0.4rem;
 }
 #pdf_download{
     width:fit-content;
@@ -82,11 +91,17 @@ label:hover{
     border: 0.1rem solid #4ebeff;
     background-color: #9adaff;
 }
+.uploaded-files{
+    margin-top: 0.6rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+}
 .output{
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 6rem;
+    margin-top: 5rem;
 }
 .download_contain{
     display: flex;
@@ -157,11 +172,14 @@ a:hover{
 }
 
 .loading{
+    position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    z-index: 2;
 }
 .loading i{
     font-size: 3rem;
@@ -186,7 +204,7 @@ a:hover{
         justify-content: center;
         align-items: center;
         margin-bottom: 6rem;
-        margin-top: 2rem;
+        margin-top: 5rem;
     }
     .download_contain{
         width: 75%;
