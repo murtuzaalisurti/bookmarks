@@ -11,7 +11,7 @@ A web app which converts the bookmark HTML file into a PDF which you can downloa
 > Visit this [link](https://bookmarks-pdf.herokuapp.com/) and upload the HTML file!
 
 #### Step 3
-> After clicking on the download button, a dialog box will appear through which you can download the PDF. A3 size format is recommended for the PDF.
+> After clicking on the download button, a dialog box will appear through which you can download the PDF.
 
 #### Step 4
 > That's it.
@@ -24,5 +24,6 @@ A web app which converts the bookmark HTML file into a PDF which you can downloa
 
 ## Tool Used
 > This app makes use of a [bookmark parser](https://gist.github.com/devster31/4e8c6548fd16ffb75c02e6f24e27f9b9) made by [devster31](https://github.com/devster31). 
+
 
 Made with :heart: by murtuza
