@@ -181,19 +181,20 @@ a:hover{
     background-color: white;
     z-index: 2;
 }
-.loading i{
+.loading i {
     font-size: 3rem;
-    transform: rotate(0deg);
-    animation: load 1.2s ease-out infinite both;
+    transform: rotate(90deg);
+    animation: load 1.6s cubic-bezier(.25,.14,.36,.83) infinite both;
 }
+
 @keyframes load {
     0%{
-        transform: rotate(0deg);
+        transform: rotate(90deg);
     }
-    100%{
-        transform: rotate(360deg);
+    100% {
+        transform: rotate(450deg);
     }
-    
+
 }
 
 @media screen and (max-width: 50rem) {
