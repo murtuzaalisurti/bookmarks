@@ -28,14 +28,16 @@ iframe{
 }
 .categories{
     display: flex;
-}
-.categories .category:not(:first-child){
-    margin-left: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .category{
     font-size: 0.6rem;
     background-color: bisque;
     padding: 0.3rem 0.5rem;
+    margin-right: 0.6rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.8rem;
 }
 .bookmark{
     font-family: 'Poppins', sans-serif;
@@ -115,11 +117,11 @@ label:hover{
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(255, 190, 105, 0.8); 
+    background: rgba(255, 190, 105, 0.424); 
     // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255, 190, 105, 0.3); 
+	background: rgba(255, 190, 105, 0.8); 
 }
 
 footer{
@@ -174,4 +176,28 @@ a:hover{
         transform: rotate(360deg);
     }
     
+}
+
+@media screen and (max-width: 50rem) {
+    .output{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 6rem;
+        margin-top: 2rem;
+    }
+    .download_contain{
+        width: 75%;
+        margin-bottom: 2.5rem;
+        align-items: center;
+    }
+    .download_contain > span{
+        width: fit-content;
+        text-align: center;
+    }
+    iframe{
+        width: 85%;
+    }
 }
