@@ -6,7 +6,7 @@ const formidable = require('formidable');
 const app = express();
 const bodyParser = require('body-parser');
 const textParser = bodyParser.text();
-app.listen(process.env.PORT, () => { console.log('listening on port 3000') });
+app.listen(process.env.PORT, () => { console.log('listening') });
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', {root: __dirname});
@@ -22,11 +22,10 @@ app.post('/', (req, res) => {
     var cheerio = require('cheerio')
     const Folder = './file/';
 
-    fs.readdirSync(Folder).forEach(file => {
-        console.log(file);
-    });
-    console.log("file: "+fs.readdirSync(Folder)[1]);
-    // console.log(path.resolve(__dirname, 'file/bookmarks_msurti_5_17_21.html'));
+    // fs.readdirSync(Folder).forEach(file => {
+    //     console.log(file);
+    // });
+    // console.log("file: "+fs.readdirSync(Folder)[1]);
     // var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, cli[0])))
 
     var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, `file/${fs.readdirSync(Folder)[1]}`)))
@@ -89,10 +88,7 @@ app.post('/', (req, res) => {
 app.post('/upload', textParser, function(req, res) {
     const form = new formidable.IncomingForm();
     form.on('fileBegin', function(formname, file){
-        console.log(file.filepath, file.originalFilename);
-        console.log(__dirname);
         file.filepath = __dirname + '/file/' + file.originalFilename;
-        console.log(file.filepath);
     })
     form.parse(req, (err, fields, files) => {
         if(err){

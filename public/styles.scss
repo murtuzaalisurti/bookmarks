@@ -153,3 +153,25 @@ a {
 a:hover{
     text-decoration: underline;
 }
+
+.loading{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading i{
+    font-size: 3rem;
+    transform: rotate(0deg);
+    animation: load 1.2s ease-out infinite both;
+}
+@keyframes load {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
