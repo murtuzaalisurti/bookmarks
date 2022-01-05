@@ -16,17 +16,12 @@ app.use(express.static('public'));
 app.use(express.json())
 
 app.post('/', (req, res) => {
+    // bookmark parser by devster31 -------------------------------------------
     var cli = process.argv.slice(2)
     var path = require('path')
     var fs = require('fs')
     var cheerio = require('cheerio')
     const Folder = './file/';
-
-    // fs.readdirSync(Folder).forEach(file => {
-    //     console.log(file);
-    // });
-    // console.log("file: "+fs.readdirSync(Folder)[1]);
-    // var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, cli[0])))
 
     var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, `file/${fs.readdirSync(Folder)[1]}`)))
 
@@ -74,8 +69,7 @@ app.post('/', (req, res) => {
         }
         jsonbmArray.push(jsonbm)
     })
-    // console.log(JSON.stringify(jsonbmArray, null, 4));
-    // fs.writeFileSync(path.resolve(__dirname, cli[0]), JSON.stringify(jsonbmArray, null, 4))
+    // ----------------------------------------------------------------
     fs.unlink(`file/${fs.readdirSync(Folder)[1]}`, (err) => {
         if (err) {
             throw err;

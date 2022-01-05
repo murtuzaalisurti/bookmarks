@@ -1,3 +1,17 @@
+// node -----------------------------------------
+
+//app.post(/)
+// fs.readdirSync(Folder).forEach(file => {
+//     console.log(file);
+// });
+// console.log("file: "+fs.readdirSync(Folder)[1]);
+// var $ = cheerio.load(fs.readFileSync(path.resolve(__dirname, cli[0])))
+// console.log(JSON.stringify(jsonbmArray, null, 4));
+// fs.writeFileSync(path.resolve(__dirname, cli[0]), JSON.stringify(jsonbmArray, null, 4))
+
+  
+
+//js ---------------------------------------------
 // all this will go into data.forEach((bookmark) => {})
 
 // const bk_categories = [[data[0].categories[0].name, data[0].categories[0].level]];
